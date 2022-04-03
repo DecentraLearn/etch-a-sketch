@@ -2,6 +2,8 @@
 const display = document.querySelector(".display");
 // Define the grid size
 let gridSize = 16;
+// Initialize a variable to track if the user is actively drawing
+let isDrawing = false;
 // Create a function that creates an individual tile element with class="tile"
 function createTile() {
   const tile = document.createElement("div");
@@ -26,14 +28,33 @@ function createGrid() {
     }
     display.appendChild(row)
   }
-  // Add the "active" class to any tile when hovered over with mouse
+  // Define a function for adding an "active" class to a div
   function setActive(e) {
     e.target.classList.add("active");
   }
+  // Add the "active" class to tiles when drawing
   const tiles = document.querySelectorAll(".tile");
-  tiles.forEach(t => t.addEventListener("mouseover", setActive));
+  tiles.forEach(t => {
+    // Starts drawing when mouse is clicked
+    t.addEventListener("mousedown", e => {
+      setActive(e);
+      isDrawing = true;
+    });
+    // Continues drawing when mouse is clicked and dragged
+    t.addEventListener("mousemove", e => {
+      if (isDrawing) {
+        setActive(e);
+      }
+    })
+    // Stops drawing when click is released
+    t.addEventListener("mouseup", e => {
+      if (isDrawing) {
+        setActive(e);
+        isDrawing = false;
+      }
+    })
+  });
 }
-
 // Define the onclick function for a button that removes the current grid, and builds a clean one using current gridSize
 function resetGrid() {
   // Remove current tiles from display
@@ -54,7 +75,6 @@ function updateGridSize(num) {
 // Use the slider input element to update the gridSize variable
 const slider = document.querySelector(".slider");
 slider.oninput = (e) => console.log(updateGridSize(e.target.value));
-
 // Set an initial gridSize of 16 and render a grid on page load/refresh
 updateGridSize(16);
 createGrid();
