@@ -112,7 +112,7 @@ function select(color) {
   });
 }
 // Set an initial gridSize of 16, set starting color to black, and render a grid on page load/refresh
-updateGridSize(16);
+updateGridSize(69);
 setCurrentColor("rgb(0, 0, 0)");
 select("rgb(0, 0, 0)");
 createGrid();
