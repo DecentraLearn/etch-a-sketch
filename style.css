@@ -1,5 +1,6 @@
 .display {
   border: 2px solid black;
+  border-radius: 5px;
   margin: 0 auto;
   width: 60vw;
   height: 60vw;
@@ -13,6 +14,7 @@
 }
 .tile {
   border: 1px solid black;
+  border-radius: 2px;
   margin: 0.5px;
 }
 .active {
