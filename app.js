@@ -30,3 +30,10 @@ for (let i = 0; i < gridSize; i++) {
   display.appendChild(row)
 }
 
+// Add the "active" class to any tile when hovered over with mouse
+function setActive(e) {
+  e.target.classList.add("active");
+}
+const tiles = document.querySelectorAll(".tile");
+tiles.forEach(t => t.addEventListener("mouseover", setActive));
+
