@@ -8,8 +8,16 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="header">
+    <div class="titlecontainer"></div>
+    <div class="instructionscontainer"></div>
+  </div>
   <div class="display"></div>
-  <button id="reset">Start Over</button>
+  <button class="reset">Start Over</button>
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="16" class="slider" id="gridslider">
+  </div>
+  <p class="gridsize"></p>
   <script src="./app.js"></script>
 </body>
 </html>
