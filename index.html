@@ -9,15 +9,20 @@
 </head>
 <body>
   <div class="header">
-    <div class="titlecontainer"></div>
-    <div class="instructionscontainer"></div>
+    <div class="titlecontainer">
+      <h1>Pixel Sketch</h1>
+    </div>
+    <div class="instructionscontainer">
+      <p>click and drag to draw... make something cool</p>
+    </div>
   </div>
   <div class="display"></div>
-  <button class="reset">Start Over</button>
+  <button class="reset">Clear</button>
   <div class="slidecontainer">
     <input type="range" min="1" max="100" value="16" class="slider" id="gridslider">
   </div>
   <p class="gridsize"></p>
+  <div class="colorcontainer"></div>
   <script src="./app.js"></script>
 </body>
 </html>

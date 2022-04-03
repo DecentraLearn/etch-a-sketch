@@ -1,22 +1,27 @@
 .display {
-  border: 2px solid black;
+  border: 2px solid rgb(95, 95, 95);
   border-radius: 5px;
   margin: 0 auto;
   width: 60vw;
   height: 60vw;
   display: flex;
   flex-direction: column;
-  padding: 1px;
 }
 .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .tile {
-  border: 1px solid black;
-  border-radius: 2px;
-  margin: 0.5px;
+  border: .01px solid rgb(95, 95, 95);
+  transition: .3s;
 }
-.active {
-  background-color: black;
+.colorcontainer {
+  display: flex;
+  gap: 5px;
+}
+.colorselector {
+  width: 40px;
+  height: 40px;
+  border: .5px solid rgb(95, 95, 95);
+  border-radius: 5px;
 }
