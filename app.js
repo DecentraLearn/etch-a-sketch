@@ -5,7 +5,7 @@ let gridSize = 16;
 // Initialize a variable to track if the user is actively drawing
 let isDrawing = false;
 // Initialize a variable to track the currently selected colo
-let currentColor = "black";
+let currentColor = "rgb(0, 0, 0)";
 // Create a function that creates an individual tile element with class="tile"
 function createTile() {
   const tile = document.createElement("div");
@@ -81,14 +81,13 @@ slider.oninput = e => {
   resetGrid();
 };
 // Initialize a variable that stores all of the color options to draw with
-const colors = ["black", "#ff0000", "#ff9900", "#ffff00", "#006600", "#00ff00", "#0000cc", "#6699ff", "#9900ff", "#ff3399", "white"];
+const colors = ["rgb(0, 0, 0)", "rgb(255, 255, 255)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 102, 0)", "rgb(0, 255, 0)", "rgb(0, 0, 204)", "rgb(102, 153, 255)", "rgb(153, 0, 255)", "rgb(255, 51, 153)", "rgb(213, 161, 126)"];
 // Initialize a variable that points to the "colorcontainer" div
 const colorContainer = document.querySelector(".colorcontainer");
 // Create divs with class "colorselector" and ids with the name of the color
 colors.forEach(color => {
   const button = document.createElement("div");
   button.setAttribute("class", "colorselector");
-  button.setAttribute("id", color);
   button.style.backgroundColor = color;
   colorContainer.appendChild(button);
 })
@@ -99,8 +98,21 @@ function setCurrentColor(color) {
 // Set an event listener on each colorselector that updates the current color
 document.querySelectorAll(".colorselector")
         .forEach(selector => selector.addEventListener("click", e => {
-          setCurrentColor(e.target.id);
+          setCurrentColor(e.target.style.backgroundColor);
+          select(e.target.style.backgroundColor);
         }));
-// Set an initial gridSize of 16 and render a grid on page load/refresh
+// Define a function that adds the class "selected" to the currently selected color
+function select(color) {
+  document.querySelectorAll(".colorselector").forEach(selector => {
+    if (selector.style.backgroundColor !== color) {
+      selector.classList.remove("selected");
+    } else {
+      selector.classList.add("selected");
+    }
+  });
+}
+// Set an initial gridSize of 16, set starting color to black, and render a grid on page load/refresh
 updateGridSize(16);
+setCurrentColor("rgb(0, 0, 0)");
+select("rgb(0, 0, 0)");
 createGrid();

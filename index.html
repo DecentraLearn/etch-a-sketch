@@ -5,24 +5,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etch-A-Sketch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="header">
     <div class="titlecontainer">
-      <h1>Pixel Sketch</h1>
+      <h1 class="title">Pixel Sketch</h1>
     </div>
     <div class="instructionscontainer">
-      <p>click and drag to draw... make something cool</p>
+      <p class="instructions">click and drag to draw... make something cool</p>
     </div>
   </div>
-  <div class="display"></div>
-  <button class="reset">Clear</button>
-  <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="16" class="slider" id="gridslider">
+  <div class="app">
+    <div class="settingscontainer">
+      <div class="gridsizecontainer">
+        <p class="gridlabel">grid size</p>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="16" class="slider" id="gridslider">
+        </div>
+        <p class="gridsize"></p>
+      </div>
+      <div class="colorcontainer"></div>
+      <button class="reset">Clear</button>
+    </div>
+    <div class="display"></div>
   </div>
-  <p class="gridsize"></p>
-  <div class="colorcontainer"></div>
+  <div class="footer">
+    <p>made by garrett franklin - <a href="https://github.com/DecentraLearn/etch-a-sketch">github</a></p>
+  </div>
   <script src="./app.js"></script>
 </body>
 </html>
